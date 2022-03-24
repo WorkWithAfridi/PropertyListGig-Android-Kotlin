@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Khond/Downloads/PropertyList_SC/PropertyList/app/src/main/res/layout/activity_detail_page.xml" value="0.44427083333333334" />
         <entry key="..\:/Users/Khond/Downloads/PropertyList_SC/PropertyList/app/src/main/res/layout/activity_main.xml" value="0.5484375" />
+        <entry key="..\:/Users/Khond/Downloads/PropertyList_SC/PropertyList/app/src/main/res/layout/detail_page.xml" value="0.43333333333333335" />
         <entry key="..\:/Users/Khond/Downloads/PropertyList_SC/PropertyList/app/src/main/res/layout/recycler_view_row.xml" value="0.5" />
       </map>
     </option>

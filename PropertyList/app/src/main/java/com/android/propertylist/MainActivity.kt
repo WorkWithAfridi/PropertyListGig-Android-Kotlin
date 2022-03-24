@@ -1,5 +1,6 @@
 package com.android.propertylist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() , PropertyListRecycleViewAdapter.OnItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.list_view_page)
         var recyclerView : RecyclerView = findViewById(R.id.mRecyclerView);
 
         setUpPropertyList();
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() , PropertyListRecycleViewAdapter.OnItem
         recyclerView.adapter = adapter;
         recyclerView.layoutManager=LinearLayoutManager(this);
         recyclerView.setHasFixedSize(true);
+
     }
 
     override fun onItemClick(postion: Int) {
@@ -38,5 +40,9 @@ class MainActivity : AppCompatActivity() , PropertyListRecycleViewAdapter.OnItem
         val clickedItem = propertyList[postion];
         clickedItem.propertyPrice=0;
         adapter.notifyItemChanged(postion);
+
+        val intent = Intent(this, detail_page::class.java)
+//        intent.putExtra("key", value)
+        startActivity(intent)
     }
 }
