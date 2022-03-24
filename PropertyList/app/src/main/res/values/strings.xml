@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PropertyList</string>
+    <string-array name="propertyAddresses">
+        <item>93 Mills Street, Poowong North</item>
+        <item>8 Southwell Crescent, Dardanup West</item>
+        <item>85 Hill Street, Sandfly </item>
+        <item>62 Rimbanda Road, Billyrimba</item>
+        <item>15 Elizabeth Street, Veteran</item>
+        <item>93 Mills Street, Poowong North</item>
+        <item>8 Southwell Crescent, Dardanup West</item>
+        <item>85 Hill Street, Sandfly </item>
+        <item>62 Rimbanda Road, Billyrimba</item>
+        <item>15 Elizabeth Street, Veteran</item>
+        <item>Lorem ipsum dolor sit amet</item>
+        <item>Lorem ipsum dolor sit amet</item>
+        <item>62 Rimbanda Road, Billyrimba</item>
+        <item>15 Elizabeth Street, Veteran</item>
+    </string-array>
+    <string-array name="propertyPrices">
+        <item>100000</item>
+        <item>200000</item>
+        <item>400000</item>
+        <item>555000</item>
+        <item>102200</item>
+        <item>122300</item>
+        <item>100055</item>
+        <item>650000</item>
+        <item>421000</item>
+        <item>422000</item>
+        <item>23000</item>
+        <item>11300</item>
+        <item>421000</item>
+        <item>422000</item>
+    </string-array>
+
+</resources>
