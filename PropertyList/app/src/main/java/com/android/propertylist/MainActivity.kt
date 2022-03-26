@@ -14,18 +14,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Creates a listFragment var, to pass in conditions using arguments
+        var listFragment = listFragment()
+        var args = Bundle()
+        args.putBoolean("containsUpdatedData", false)
 
+        listFragment.arguments=args
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, listFragment())
+        //setups the initial fragment
+        fragmentTransaction.replace(R.id.fragmentContainer, listFragment)
         fragmentTransaction.commit()
 
-    }
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
     }
 }
