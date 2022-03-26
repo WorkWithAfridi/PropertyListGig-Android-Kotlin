@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PropertyList">
         <activity
-            android:name=".detail_page"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

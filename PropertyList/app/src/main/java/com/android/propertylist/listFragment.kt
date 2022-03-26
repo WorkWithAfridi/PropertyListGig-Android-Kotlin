@@ -37,13 +37,8 @@ class listFragment : Fragment(R.layout.list_page_fragment), PropertyListRecycleV
         recyclerView=view.findViewById(R.id.mRecyclerView);
         recyclerView.setHasFixedSize(true);
         adapter= PropertyListRecycleViewAdapter( inflaterr = inflater, propertyList = propertyList, this);
-
-    recyclerView.adapter=adapter;
-
+        recyclerView.adapter=adapter;
         recyclerView.layoutManager=LinearLayoutManager(context);
-//
-
-
         return view ;
     }
 
@@ -51,6 +46,17 @@ class listFragment : Fragment(R.layout.list_page_fragment), PropertyListRecycleV
         val clickedItem = propertyList[postion];
         clickedItem.propertyPrice=0;
         adapter.notifyItemChanged(postion);
+
+
+        var detailFrag = detailsFragment();
+        var args = Bundle()
+        args.putString("propertyLocation", clickedItem.propertyLocation);
+        args.putString("propertyPrice", clickedItem.propertyPrice.toString());
+        detailFrag.arguments=args
+
+        var parentFragmentManagerBeginTransaction=parentFragmentManager.beginTransaction()
+        parentFragmentManagerBeginTransaction?.replace(R.id.fragmentContainer, detailFrag)
+        parentFragmentManagerBeginTransaction?.commit()
     }
 
 }
