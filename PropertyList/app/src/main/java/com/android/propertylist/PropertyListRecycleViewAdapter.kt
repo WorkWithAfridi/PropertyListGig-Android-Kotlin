@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PropertyListRecycleViewAdapter(var context: Context, var propertyList: ArrayList<propertyModel>,val listener: OnItemClickListener) : RecyclerView.Adapter<PropertyListRecycleViewAdapter.ViewHolder>() {
+class PropertyListRecycleViewAdapter( var inflaterr: LayoutInflater, var propertyList: ArrayList<propertyModel>,val listener: OnItemClickListener) : RecyclerView.Adapter<PropertyListRecycleViewAdapter.ViewHolder>() {
 
 
 
@@ -15,7 +15,8 @@ class PropertyListRecycleViewAdapter(var context: Context, var propertyList: Arr
         parent: ViewGroup,
         viewType: Int
     ): PropertyListRecycleViewAdapter.ViewHolder {
-        var inflater : LayoutInflater = LayoutInflater.from(context);
+//        var inflater : LayoutInflater = LayoutInflater.from(context);
+        var inflater : LayoutInflater = inflaterr;
         var view : View = inflater.inflate(R.layout.recycler_view_row, parent, false);
 
         return PropertyListRecycleViewAdapter.ViewHolder(view, listener);

@@ -1,14 +1,14 @@
 package com.android.propertylist
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() , PropertyListRecycleViewAdapter.OnItemClickListener{
+class MainActivity : AppCompatActivity(){
 
     var propertyList: ArrayList<propertyModel> = ArrayList<propertyModel>();
 
@@ -21,29 +21,52 @@ class MainActivity : AppCompatActivity() , PropertyListRecycleViewAdapter.OnItem
             index++
         }
     }
-    var adapter:PropertyListRecycleViewAdapter = PropertyListRecycleViewAdapter(context = this, propertyList = propertyList, this);
+//    var adapter:PropertyListRecycleViewAdapter = PropertyListRecycleViewAdapter(context = this, propertyList = propertyList, this);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_view_page)
-        var recyclerView : RecyclerView = findViewById(R.id.mRecyclerView);
+        setContentView(R.layout.activity_main)
 
-        setUpPropertyList();
 
-        recyclerView.adapter = adapter;
-        recyclerView.layoutManager=LinearLayoutManager(this);
-        recyclerView.setHasFixedSize(true);
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, listFragment())
+        fragmentTransaction.commit()
+
+
+////
+//        setUpPropertyList();
+//        var recyclerView : RecyclerView = findViewById(R.id.mRecyclerView);
+//        recyclerView.adapter = adapter;
+//        recyclerView.layoutManager= LinearLayoutManager(this);
+//        recyclerView.setHasFixedSize(true);
 
     }
 
-    override fun onItemClick(postion: Int) {
-        Toast.makeText(this, "Item $postion", Toast.LENGTH_LONG).show();
-        val clickedItem = propertyList[postion];
-        clickedItem.propertyPrice=0;
-        adapter.notifyItemChanged(postion);
+//    override fun onItemClick(postion: Int) {
+//
+//        print("Pringting")
+//        Toast.makeText(this, "Item $postion", Toast.LENGTH_LONG).show();
+//        val clickedItem = propertyList[postion];
+//        clickedItem.propertyPrice=0;
+//        var inflater : LayoutInflater = LayoutInflater.from(this);
+//
+//        var adapter:PropertyListRecycleViewAdapter = PropertyListRecycleViewAdapter( inflaterr = inflater, propertyList = propertyList, this);
+//
+//        adapter.notifyItemChanged(postion);
+//
+//        replaceFragment(detailsFragment())
+//
+////        val intent = Intent(this, detail_page::class.java)
+//////        intent.putExtra("key", value)
+////        startActivity(intent)
+//    }
 
-//        val intent = Intent(this, detail_page::class.java)
-////        intent.putExtra("key", value)
-//        startActivity(intent)
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.commit()
     }
 }
