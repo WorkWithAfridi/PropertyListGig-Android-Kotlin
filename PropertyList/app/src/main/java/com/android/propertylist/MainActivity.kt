@@ -26,6 +26,5 @@ class MainActivity : AppCompatActivity(R.layout.activity_main){
         //setups the initial fragment
         fragmentTransaction.replace(R.id.fragmentContainer, listFragment)
         fragmentTransaction.commit()
-
     }
 }

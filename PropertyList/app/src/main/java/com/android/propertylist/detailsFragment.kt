@@ -2,14 +2,14 @@ package com.android.propertylist
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -30,6 +30,7 @@ class detailsFragment:Fragment(R.layout.details_page_fragment) {
         var propertyLocation = arguments?.getString("propertyLocation")
         var propertyPrice = arguments?.getString("propertyPrice")
         var propertyAgent = arguments?.getString("propertyAgent")
+        var propertyImage = arguments?.getString("propertyImage")
 
         var view = inflater.inflate(R.layout.details_page_fragment, container, false)
 
@@ -37,6 +38,10 @@ class detailsFragment:Fragment(R.layout.details_page_fragment) {
         locationEditText = view.findViewById<EditText>(R.id.propertyLocation);
         priceEditText = view.findViewById<EditText>(R.id.propertyPrice);
         agentEditText = view.findViewById<EditText>(R.id.propertyAgent);
+
+        //initialize imageView and set custom house image
+        var imageView = view.findViewById<ImageView>(R.id.imageView)
+        imageView.setImageBitmap(stringToBitmap(propertyImage.toString()))
 
         //Filling the edittexts with default data
         locationEditText.setText(propertyLocation)
@@ -85,6 +90,13 @@ class detailsFragment:Fragment(R.layout.details_page_fragment) {
         requireActivity().onBackPressedDispatcher.addCallback(callBack);
 
         return view;
+    }
+
+    // coverts bitMapString back to bitmap for imageview
+    private fun stringToBitmap(string: String): Bitmap {
+        var encodedByte = Base64.decode(string, Base64.DEFAULT)
+        var bitmap = BitmapFactory.decodeByteArray(encodedByte, 0, encodedByte.size)
+        return bitmap
     }
 
     //Function that triggers the returnToListFragment

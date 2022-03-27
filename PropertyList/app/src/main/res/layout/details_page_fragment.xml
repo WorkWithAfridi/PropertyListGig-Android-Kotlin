@@ -102,7 +102,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="279dp"
         android:layout_marginStart="24dp"
@@ -113,6 +113,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.74"
-        app:srcCompat="@drawable/house_three" />
+        app:srcCompat="@drawable/house2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

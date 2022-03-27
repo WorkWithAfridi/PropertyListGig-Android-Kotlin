@@ -1,6 +1,8 @@
 package com.android.propertylist
 
-class propertyModel(var propertyLocation: String, var propertyPrice: Int, var propertyAgent: String) {
+import android.graphics.Bitmap
+
+class propertyModel(var propertyLocation: String, var propertyPrice: Int, var propertyAgent: String, val propertyImage: Bitmap) {
    fun geLocation(): String{
         return propertyLocation;
     }
