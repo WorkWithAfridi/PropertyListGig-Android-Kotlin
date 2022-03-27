@@ -128,6 +128,7 @@ class detailsFragment:Fragment(R.layout.details_page_fragment) {
             var parentFragmentManagerBeginTransaction=parentFragmentManager.beginTransaction()
             parentFragmentManagerBeginTransaction?.replace(R.id.fragmentContainer, listFragment)
             parentFragmentManagerBeginTransaction?.commit()
+
         }catch (e: Exception){
             val alertDialogBuilder = AlertDialog.Builder(context)
             alertDialogBuilder.setTitle("Error")
